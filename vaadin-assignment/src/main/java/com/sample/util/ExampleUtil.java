@@ -1,4 +1,4 @@
-package hsenid;
+package com.sample.util;
 
 import com.vaadin.data.Item;
 import com.vaadin.data.util.IndexedContainer;

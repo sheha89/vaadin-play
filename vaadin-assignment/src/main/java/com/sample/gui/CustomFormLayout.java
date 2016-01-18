@@ -1,16 +1,25 @@
-package hsenid;
+package com.sample.gui;
 
-import java.util.Arrays;
-
+import com.sample.model.CustomItem;
+import com.sample.service.CustomItemService;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.*;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.themes.BaseTheme;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
 
 @SuppressWarnings("serial")
+@Component
 public class CustomFormLayout extends VerticalLayout {
 
+    @Autowired
+    CustomItemService customItemService;
+
     CustomItem customItem;
+
     int itemCountOnRender;
 
     public CustomFormLayout(final Table table) {
@@ -59,6 +68,7 @@ public class CustomFormLayout extends VerticalLayout {
                 try {
                     itemForm.commit();
                     itemCountOnRender++;
+                    customItemService.saveCustomItem(customItem);
                     table.addItem(new Object[]{customItem.getName(), customItem.getPrice()}, new Integer(itemCountOnRender));
                 } catch (Exception e) {
                     // Ignored, we'll let the Form handle the errors

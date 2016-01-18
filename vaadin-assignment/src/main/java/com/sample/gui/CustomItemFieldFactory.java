@@ -1,4 +1,4 @@
-package hsenid;
+package com.sample.gui;
 
 import com.vaadin.data.Item;
 import com.vaadin.data.validator.StringLengthValidator;

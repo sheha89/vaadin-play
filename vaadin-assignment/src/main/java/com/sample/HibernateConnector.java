@@ -1,4 +1,4 @@
-package hsenid;
+package com.sample;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
